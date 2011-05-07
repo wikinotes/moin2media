@@ -23,10 +23,10 @@ foreach (@testlines) {
 	s/ (.*)::(.*)/; $1 : $2/g;
 #	s/[[(.*) | (.*)]]/[$1 $2]/g;
 #	s/^ (.*)/:$1/g;	
+	s/^<<Date\((.*)T(.*)\)>>/$1/g;
+	s/\[\[(.*)\]\]/$1/g;
 }
 
 open(HANDLES, ">media.txt");
 print HANDLES "$_" foreach @testlines;
 close HANDLES;
-
-
